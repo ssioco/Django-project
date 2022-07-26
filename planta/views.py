@@ -1,3 +1,5 @@
+from re import A
+from urllib import request
 from django import http
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -17,3 +19,26 @@ def saludoEspecial(request,nombre):
 
 def multiplo(request,num,num2):
     return HttpResponse(f"Hola tu resultado es {num*num2}")
+
+def loginFormulario(request):
+    return render(request, 'planta/login/login-form.html')
+
+def login(request):
+    u= request.POST["user"]
+    c= request.POST["pswd"]
+
+    if u == "Juan" and c == "12345":
+        return HttpResponse("bienvenido mi rey")
+    else:
+        return HttpResponse("no eres bienvenido mi rey")
+
+def sumita(request):
+    return render(request, 'planta/suma/suma.html')
+
+def sumitaResultado(request):
+    a= int(request.POST["valor1"])
+    b= int(request.POST["valor2"])
+
+    r=a+b
+
+    return HttpResponse(f"Resultado: {r}")
