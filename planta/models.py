@@ -9,6 +9,10 @@ class Trabajador(models.Model): #Herencia de el framework
     nombre = models.CharField(max_length=100)
     apellido = models.CharField(max_length=100)
     correo = models.EmailField(max_length=100, null=True, blank=True)
+    #fecha nacimiento calcular edad
+
+    def nombreCompleto(self):
+        return f"{self.nombre} {self.apellido}"
 
     def __str__(self) -> str:
         return f"{self.nombre} {self.apellido}"
