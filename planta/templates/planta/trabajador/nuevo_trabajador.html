@@ -1,0 +1,25 @@
+{% extends "planta/base.html" %}
+{% load static %} 
+
+{% block titulo %} agregar trabajadores {% endblock %}
+{% block subtitulo %} Trabajadores agregar {% endblock %}
+{% block contenedor %}
+
+<form action="{% url 'planta:guardarTrabajador' %}" method="post">
+    {% csrf_token %}
+    <label for="name">Nombre</label>
+    <input type="text" name="nombre" id="nombre">
+    <br>
+    <label for="last">Apellido</label>
+    <input type="text" name="apellido" id="apellido">
+    <br>
+    <label for="id">Cedula</label>
+    <input type="text" name="cedula" id="cedula">
+    <br>
+    <label for="mail">Correo</label>
+    <input type="text" name="correo" id="correo">
+    <br>
+    <button type="submit">Enviar</button>
+</form>
+
+{% endblock %}
